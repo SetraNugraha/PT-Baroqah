@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-menu-card {
+  margin: 0 200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+
+}
+
+.container-card {
+  margin-top: 30px;
+  max-height: 500px;
+  width: 393px;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding-left: 27px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 22px;
+}
+
+.profile-picture {
+  max-width: 120px;
+  height: 161px;
+  border: 1px solid black;
+  border-radius: 35px 10px 10px 0px;
+  box-shadow: 4px 4px rgb(206, 203, 203);
+}
+
+.employee-name {
+  margin-left: 24px;
+}
+
+.employee-name p {
+  font-weight: bold;
+}
+
+.employee-name h5 {
+  margin-top: 34px;
+  font-weight: bold;
+}
+
+.employee-name h6 {
+  margin-top: 8px;
+}
+
+.horizontal-line {
+  width: 333px;
+  border-width: 2px;
+}
+
+.detail-card {
+  width: 333px;
+  height: 230px;
+}
+
+
+.left {
+  font-weight: bold;
+}
+
+td.left {
+  width: 40%;
+  padding-bottom: 10px;
+}
+td {
+  padding-bottom: 10px;
+}
+
+td.right {
+  width: 55%;
+  padding-bottom: 10px;
+}
+
+.footer {
+  /* height: 15%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 27px;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: black;
+  margin: 0 10px;
+}
