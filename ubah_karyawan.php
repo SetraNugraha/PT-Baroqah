@@ -1,6 +1,9 @@
 <?php
 session_start();
-require_once 'classes/Database.php';
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+include "layout/header.php";
+
 // Cek Login
 if (!isset($_SESSION["login"])) {
       echo "<script>
@@ -10,9 +13,7 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-include "layout/header.php";
-
-$karyawan = new Database();
+$karyawan = new Karyawan();
 // mengambil id_karyawan dari URL
 $id_karyawan = (int)$_GET["id_karyawan"];
 
@@ -23,12 +24,12 @@ if (isset($_POST["ubah"])) {
       if ($result = $karyawan->updateData("karyawan")->rowCount() > 0) {
             echo  "<script>
                 alert('Data Karyawan Berhasil Dirubah');
-                //document.location.href = 'index.php';
+                document.location.href = 'index.php';
                 </script>";
       } else {
             echo  "<script>
                 alert('Data Karyawan Gagal Dirubah !');
-                //document.location.href = 'index.php';
+                document.location.href = 'index.php';
                 </script>";
       }
 }

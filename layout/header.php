@@ -1,9 +1,3 @@
-<?php
-include "config/app.php";
-
-?>
-
-
 <!doctype html>
 <html lang="en">
 

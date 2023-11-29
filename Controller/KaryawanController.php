@@ -1,8 +1,7 @@
 <?php
 
-class Database
+class Karyawan
 {
-
     public $host = 'localhost';
     public $user = 'root';
     public $pass = '';

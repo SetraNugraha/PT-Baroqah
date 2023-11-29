@@ -1,6 +1,9 @@
 <?php
 session_start();
-require_once 'classes/Database.php';
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+include "layout/header.php";
+
 // Cek Login
 if (!isset($_SESSION["login"])) {
       echo "<script>
@@ -10,9 +13,7 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-include "layout/header.php";
-
-$insertGaji = new Database();
+$insertGaji = new Karyawan();
 // cek apakah button tambah diklik
 if (isset($_POST["tambah_gaji"])) {
       if ($insertGaji->createData("gaji") > 0) {

@@ -1,5 +1,8 @@
 <?php
 session_start();
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+require_once 'layout/header.php';
 
 // Cek Login
 if (!isset($_SESSION["login"])) {
@@ -10,16 +13,10 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-require_once 'layout/header.php';
-require_once 'classes/Database.php';
-
-$karyawan = new Database();
+$karyawan = new Karyawan();
 $stmt = $karyawan->pdo->prepare("SELECT k.nama, k.nohp, k.alamat, k.jabatan, k.tgl_bergabung, k.image, g.total_gaji FROM karyawan k INNER JOIN gaji g ON k.nama = g.nama_karyawan");
 
 $stmt->execute();
-
-// $results = $karyawan->readData("karyawan", "id_karyawan");
-
 ?>
 
 <link rel="stylesheet" href="css/cardKaryawan.css">
@@ -82,15 +79,8 @@ $stmt->execute();
                         <h6>PT. Baroqah</h6>
                         <div class="line"></div>
                   </div>
-
             </div>
-
       <?php endforeach; ?>
-
-
 </div>
-
-
-
 
 <?php require_once 'layout/footer.php' ?>

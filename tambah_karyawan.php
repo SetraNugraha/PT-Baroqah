@@ -1,7 +1,9 @@
 <?php 
-require_once 'classes/Database.php';
-
 session_start();
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+include "layout/header.php";
+
 // Cek Login
 if (!isset($_SESSION["login"])) {
       echo "<script>
@@ -11,10 +13,7 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-
-include "layout/header.php";
-
-$insertKaryawan = new Database();
+$insertKaryawan = new Karyawan();
 // cek apakah button tambah diklik
 if (isset($_POST["tambah"])) {
       if ($insertKaryawan->createData("karyawan") > 0) {
@@ -87,12 +86,8 @@ if (isset($_POST["tambah"])) {
 
                   <button type="submit" name="tambah" class="btn btn-primary" style="float: right;">Tambah</button>
                   <a href="index.php" class="btn btn-danger">Cancel</a>
-
-
             </form>
       </div>
-
-
 </div>
 
 <?php include "layout/footer.php"; ?>

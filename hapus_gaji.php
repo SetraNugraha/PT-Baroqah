@@ -1,6 +1,8 @@
 <?php 
 session_start();
-require_once 'classes/Database.php';
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+
 // Cek Login
 if (!isset($_SESSION["login"])) {
       echo "<script>
@@ -10,9 +12,7 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-
-include "config/app.php";
-$gaji = new Database();
+$gaji = new Karyawan();
 // mengambil id gaji dari URL
 $id_gaji = (int)$_GET["id_gaji"];
 

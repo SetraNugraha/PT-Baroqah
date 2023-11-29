@@ -1,7 +1,9 @@
 <?php
 session_start();
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+include "layout/header.php";
 
-require_once 'classes/Database.php';
 // Cek Login
 if (!isset($_SESSION["login"])) {
       echo "<script>
@@ -11,12 +13,9 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-
-include "layout/header.php";
-
 // Menampilkan data gaji yang terbaru
 // $data_gaji = select("SELECT * FROM gaji ORDER BY id_gaji DESC");
-$data_gaji = new Database();
+$data_gaji = new Karyawan();
 
 ?>
 

@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once 'classes/Database.php';
+require_once 'Controller/KaryawanController.php';
+require_once 'Controller/UserController.php';
+include "layout/header.php";
 
 // Cek Login
 if (!isset($_SESSION["login"])) {
@@ -11,15 +13,8 @@ if (!isset($_SESSION["login"])) {
       exit;
 }
 
-
-include "layout/header.php";
-
-// query menampilkan data karyawan
-// $data_karyawan = select("SELECT * FROM karyawan ORDER BY id_karyawan DESC");
-$data_karyawan = new Database();
-
+$data_karyawan = new Karyawan();
 ?>
-
 
 <div class="container mb-3 ">
       <h1 class="mt-3">Data Karyawan</h1>

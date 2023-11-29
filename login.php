@@ -1,39 +1,14 @@
 <?php
 session_start();
+require_once 'Controller/UserController.php';
 
-include "config/app.php";
 
 // cek tombol login ditekan
 if (isset($_POST["login"])) {
 
-      // mengambil input username dan password user
-      $username = mysqli_real_escape_string($db, $_POST["username"]);
-      $password = mysqli_real_escape_string($db, $_POST["password"]);
-
-      // cek username
-      $result = mysqli_query($db, "SELECT * FROM user WHERE username = '$username'");
-
-      // apakah username ditemukan
-      if (mysqli_num_rows($result) == 1) {
-            // cek password 
-            $row = mysqli_fetch_assoc($result);
-
-            if ($password == $row['password']) {
-                  // set session
-                  $_SESSION['login'] = true;
-                  $_SESSION['id_user'] = $row['id_user'];
-                  $_SESSION['username'] = $row['username'];
-
-                  header("Location: index.php");
-                  exit;
-            }
-      }
-
-      // jika salah atau tidak ada username / password
-      $error = true;
+      $user = new User();
+      $user->login();
 }
-
-
 ?>
 
 <!doctype html>
@@ -135,8 +110,7 @@ if (isset($_POST["login"])) {
                               </b>
                         </div>
 
-                  <?php endif; ?> 
-
+                  <?php endif; ?>
 
                   <div class="form-floating">
                         <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username" autocomplete="off" required>
@@ -151,9 +125,6 @@ if (isset($_POST["login"])) {
 
             </form>
       </main>
-
-
-
 </body>
 
 </html>
